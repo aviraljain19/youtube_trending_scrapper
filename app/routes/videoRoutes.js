@@ -20,6 +20,7 @@ const fetchChannelDetails = async (channelId) => {
             channelDescription: channel.snippet.description || "No description available",
             channelSubscribers: channel.statistics.subscriberCount || "0",
             channelThumbnails: channel.snippet.thumbnails.default.url,
+            channelUrl: channel.snippet.customUrl || `https://www.youtube.com/channel/${channelId}`,
         };
     } catch (error) {
         console.error(`Error fetching channel details for ${channelId}:`, error.message);
@@ -28,6 +29,7 @@ const fetchChannelDetails = async (channelId) => {
             channelDescription: "No description available",
             channelSubscribers: "0",
             channelThumbnails: "N/A",
+            channelUrl: "N/A"
         };
     }
 };

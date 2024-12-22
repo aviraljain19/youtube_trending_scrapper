@@ -9,7 +9,7 @@ curl_close($ch);
 return $data;
 }
 $videoId = $_GET['id'];
-$apiUrl = "http://localhost:3000/api/videos/$videoId";
+$apiUrl = "https://youtube-trending-scrapper-backend.onrender.com/api/videos/$videoId";
 $data = file_get_contents($apiUrl);
 $video = json_decode($data, true);
 ?>

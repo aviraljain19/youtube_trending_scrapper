@@ -9,7 +9,7 @@ $data = curl_exec($ch);
 curl_close($ch);
 return $data;
 }
-$fetchUrl = 'http://localhost:3000/api/videos/fetch';
+$fetchUrl = 'https://youtube-trending-scrapper-backend.onrender.com/api/videos/fetch';
 $response = file_get_contents($fetchUrl);
 header('Location: index.php');
 ?>
