@@ -113,16 +113,8 @@ router.get("/:id", async (req, res) => {
   try{
     const video = await Video.findOne({ videoId: req.params.id });
   if (video) {
-    const moreVideoInfo = await videoInfo(video.url);
-    const chanInfo = await channelInfo(
-      `https://www.youtube.com${video.channelUrl}`
-    );
-    const updated = await Video.findOneAndUpdate(
-      { videoId: video.videoId },
-      { ...moreVideoInfo, ...chanInfo },
-      { upsert: true, new: true }
-    );
-    res.json(updated);
+    
+    res.json(video);
   } else {
     res.status(404).json({ error: "Video not found" });
   }
