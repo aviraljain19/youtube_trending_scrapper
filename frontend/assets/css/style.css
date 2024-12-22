@@ -1,5 +1,4 @@
 body {
-  font-family: Arial, sans-serif;
   margin: 0px;
   padding: 0px;
   background: #000000;
@@ -40,7 +39,7 @@ header {
 .btn {
   display: flex;
   justify-content: center;
-  margin: 10px;
+  margin: 10px 0px 20px 0px;
 }
 
 button {
@@ -55,7 +54,15 @@ button:hover {
   background-color: #ffffff89;
 }
 
+.trending{
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  margin: 25px;
+}
+
 .videos {
+  margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -67,7 +74,7 @@ button:hover {
   color: rgb(226, 226, 226);
   margin: 10px;
   text-align: center;
-  width: 30%;
+  width: 80%;
   border-radius: 20px;
   padding: 8px;
   backdrop-filter: blur(10px);
@@ -88,3 +95,22 @@ button:hover {
   width: 90%;
   border-radius: 20px;
 }
+
+@media(min-width:650px){
+  .video{
+    width: 40%;
+  }
+  .trending{
+    font-size: 30px;
+  }
+}
+
+@media(min-width:992px){
+  .video{
+    width: 30%;
+  }
+  .trending{
+    font-size: 35px;
+  }
+}
+

@@ -20,6 +20,7 @@ $videos = json_decode($data, true);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YouTube Trending Videos</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://kit.fontawesome.com/8e2867f597.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -33,7 +34,7 @@ $videos = json_decode($data, true);
   <button onclick="window.location.href='fetch.php'">Fetch Latest Videos</button>
 
   </div>
-    <span style="color:white; margin: 23px; font-size: 35px; font-weight:bold;">Trending🔥</span>
+    <span class="trending">Trending🔥</span>
     <div class="videos" style="display: flex;">
         <?php foreach ($videos as $video): ?>
             <div class="video" style="margin: 10px;">

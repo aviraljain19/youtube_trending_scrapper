@@ -12,6 +12,7 @@ $videoId = $_GET['id'];
 $apiUrl = "https://youtube-trending-scrapper-backend.onrender.com/api/videos/$videoId";
 $data = file_get_contents($apiUrl);
 $video = json_decode($data, true);
+
 ?>
 
 <!DOCTYPE html>
@@ -19,84 +20,36 @@ $video = json_decode($data, true);
 <head>
     <meta charset="UTF-8">
     <title><?= $video['title'] ?></title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
-        h1 {
-            color: #fff;
-            font-size: 2rem;
-            margin-top: 20px;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        iframe {
-            width: 100%;
-            height: 500px;
-            border: none;
-        }
-        .video-details, .channel-details {
-            margin-top: 20px;
-        }
-        .video-details p, .channel-details p {
-            font-size: 1rem;
-            margin: 8px 0;
-        }
-        .video-details span, .channel-details span {
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-        .thumbnail {
-            margin-top: 20px;
-            text-align: center;
-        }
-        .thumbnail img {
-            width: 300px;          
-            border-radius: 8px;
-        }
-        a {
-            color: #1e90ff;
-            text-decoration: none;
-            font-size: 1rem;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .back-button {
-            display: inline-block;
-            margin-top: 20px;
-            font-size: 1rem;
-            padding: 10px;
-            background-color: #333;
-            color: #fff;
-            border-radius: 5px;
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/detais.css">
+    <script src="https://kit.fontawesome.com/8e2867f597.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
+        <div class="videoDetail">
         <h1><?= $video['title'] ?></h1>
         <iframe src="https://www.youtube.com/embed/<?= $video['videoId'] ?>?autoplay=1" allow="autoplay" allowfullscreen></iframe>
 
         <div class="video-details">
             <p><span>Description:</span> <?= $video['description'] ?></p>
-            <p><span>Views:</span> <?= $video['views'] ?></p>
-            <p><span>Likes:</span> <?= $video['likes'] ?></p>
+            <p><span>Views:</span> <?= $video['views'] ?><i class="fa-solid fa-eye" style="color: #ffffff; margin-left:5px;"></i></p>
+            <p><span>Likes:</span> <?= $video['likes'] ?><i class="fa-regular fa-thumbs-up" style="color: #ffffff; margin-left:5px;"></i></p>
             <p><span>URL:</span> <a href="<?= $video['url'] ?>" target="_blank">Watch on YouTube</a></p>
         </div>
 
         <div class="thumbnail">
             <img src="<?= $video['thumbnails'] ?>" alt="Thumbnail">
         </div>
-
+        
+        <div class="sizes">
+        <button onclick="viewImage('1280x720')">1280x720</button>
+        <button onclick="viewImage('640x480')">640x480</button>
+        <button onclick="viewImage('480x360')">480x360</button>
+        <button onclick="viewImage('320x180')">320x180</button>
+        <button onclick="viewImage('120x90')">120x90</button>
+        </div>
+        
+        </div>
+        <div class="channelDetail">
         <div class="channel-details">
             <p><span>Channel Title:</span> <?= $video['channelTitle'] ?></p>
             <p><span>Channel Description:</span> <?= $video['channelDescription'] ?></p>
@@ -106,10 +59,34 @@ $video = json_decode($data, true);
         </div>
             <p><span>Channel URL:</span> <a href="<?= $video['channelUrl'] ?>" target="_blank">Go to Channel</a></p>
         </div>
-
+        </div>
         <div class="back-button">
-            <a href="index.php">Back to Trending Videos</a>
+            <a href="index.php"><i class="fa-solid fa-arrow-left" style="margin-right:5px; color:#1e90ff;"></i>Back to Trending Videos</a>
         </div>
     </div>
+    <script>
+        function viewImage(size) {
+            if(size==='1280x720'){
+                const imgSrc = 'https://img.youtube.com/vi/<?= $videoId ?>/maxresdefault.jpg';
+                window.open(imgSrc);
+            }
+            else if(size==='640x480'){
+                const imgSrc = 'https://i.ytimg.com/vi/<?= $videoId ?>/sddefault.jpg';
+                window.open(imgSrc);
+            }
+            else if(size==='480x360'){
+                const imgSrc = 'https://i.ytimg.com/vi/<?= $videoId ?>/hqdefault.jpg';
+                window.open(imgSrc);
+            }
+            else if(size==='320x180'){
+                const imgSrc = 'https://img.youtube.com/vi/<?= $videoId ?>/mqdefault.jpg';
+                window.open(imgSrc);
+            }
+            else if(size==='120x90'){
+                const imgSrc = 'https://img.youtube.com/vi/<?= $videoId ?>/default.jpg';
+                window.open(imgSrc);
+            }
+        }
+    </script>
 </body>
 </html>
