@@ -9,7 +9,7 @@ $data = curl_exec($ch);
 curl_close($ch);
 return $data;
 }
-$fetchUrl = 'http://backend:3000/api/videos/fetch';
+$fetchUrl = 'http://localhost:3000/api/videos/fetch';
 $response = file_get_contents($fetchUrl);
 header('Location: index.php');
 ?>
