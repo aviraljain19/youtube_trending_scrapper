@@ -104,7 +104,7 @@ $video = json_decode($data, true);
             <div class="thumbnail">
             <img src="<?= $video['channelThumbnails'] ?>" alt="Channel Thumbnail">
         </div>
-            <p><span>Channel URL:</span> <a href="https://www.youtube.com<?= $video['channelUrl'] ?>" target="_blank">Go to Channel</a></p>
+            <p><span>Channel URL:</span> <a href="<?= $video['channelUrl'] ?>" target="_blank">Go to Channel</a></p>
         </div>
 
         <div class="back-button">
