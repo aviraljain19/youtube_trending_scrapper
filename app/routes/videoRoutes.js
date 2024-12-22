@@ -47,7 +47,7 @@ const fetchTrendingVideos = async () => {
                 title: video.snippet.title,
                 description: video.snippet.description,
                 url: `https://www.youtube.com/watch?v=${video.id}`,
-                thumbnails: video.snippet.thumbnails.default.url,
+                thumbnails: `http://img.youtube.com/vi/${videoId}/hqdefault.jpg` || video.snippet.thumbnails.default.url,
                 views: video.statistics.viewCount || "0",
                 likes: video.statistics.likeCount || "0",
             };
