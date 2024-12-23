@@ -1,5 +1,5 @@
 # YouTube Trending Video Scraper Web App
-### LIVE SITE [HERE](http://youtube-trending-videos.infinityfreeapp.com/)
+### LIVE SITE [HERE](https://youtube-trending-scrapper.onrender.com/index.php)
 ## Project Description
 
 This application scrapes trending videos from YouTube, saves them into a database, and displays them on a web page. It includes:
@@ -120,10 +120,36 @@ sudo dnf install nodejs npm mongodb php php-cli
 
 
 3. Run the Node.js server and PHP server.
-4. 
+4. Testing the Application
+- Test backend at http://localhost:3000/
+- Visit the landing page: http://localhost:8080
+- To fetch new trending videos, click the Fetch Videos button.
+- Click on a video to view its details.
+  
    
-
-### 6. Screenshots
+### 6. Running using docker
+  1. Install docker on your system
+     
+  2. Run backend
+     ```bash
+     cd app
+     docker build -t backend:1.0 .
+     docker run -p 3000:3000 --env-file <your-env-file>.env backend:1.0
+     ```
+  3. Run frontend
+  - Update API URLs in the PHP files (index.php, fetch.php and details.php).
+     ```bash
+     cd frontend
+     docker build -t frontend:1.0 .
+     docker run -p 8080:80 frontend:1.0
+     ```
+  4. Testing the Application
+   - Test backend at http://localhost:3000/
+   - Visit the landing page: http://localhost:8080
+   - To fetch new trending videos, click the Fetch Videos button.
+   - Click on a video to view its details.
+       
+### 7. Screenshots
 - Desktop view
  <p>
     <img src="images/ss1.png" alt="Image 1" width="500">
@@ -139,6 +165,6 @@ sudo dnf install nodejs npm mongodb php php-cli
 </p>
 
 
-### 7. Contributing
+### 8. Contributing
 
 Feel free to submit issues or pull requests for improvements.
