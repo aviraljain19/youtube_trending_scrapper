@@ -18,8 +18,8 @@ h1 {
 }
 iframe {
   border-radius: 20px;
-  width: 90%;
-  height: 300px;
+  width: 95%;
+  height: 270px;
   border: none;
 }
 
@@ -32,7 +32,7 @@ iframe {
 
 .video-details,
 .channel-details {
-  margin-top: 20px;
+  margin: 10px;
   background-color: #333;
   padding: 10px;
   border-radius: 10px;
