@@ -11,5 +11,5 @@ return $data;
 }
 $fetchUrl = 'https://youtube-trending-scrapper-backend.onrender.com/api/videos/fetch';
 $response = file_get_contents($fetchUrl);
-header('Location: index.php');
+header('Location: index.php?refreshed=true');
 ?>
