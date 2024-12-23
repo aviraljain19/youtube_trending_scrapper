@@ -19,6 +19,7 @@ $video = json_decode($data, true);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $video['title'] ?></title>
     <link rel="stylesheet" href="assets/css/detais.css">
     <script src="https://kit.fontawesome.com/8e2867f597.js" crossorigin="anonymous"></script>
@@ -26,39 +27,38 @@ $video = json_decode($data, true);
 <body>
     <div class="container">
         <div class="videoDetail">
-        <h1><?= $video['title'] ?></h1>
-        <iframe src="https://www.youtube.com/embed/<?= $video['videoId'] ?>?autoplay=1" allow="autoplay" allowfullscreen></iframe>
+            <h1><?= $video['title'] ?></h1>
+            <iframe src="https://www.youtube.com/embed/<?= $video['videoId'] ?>?autoplay=1" allow="autoplay" allowfullscreen></iframe>
 
-        <div class="video-details">
-            <p><span>Description:</span> <?= $video['description'] ?></p>
-            <p><span>Views:</span> <?= $video['views'] ?><i class="fa-solid fa-eye" style="color: #ffffff; margin-left:5px;"></i></p>
-            <p><span>Likes:</span> <?= $video['likes'] ?><i class="fa-regular fa-thumbs-up" style="color: #ffffff; margin-left:5px;"></i></p>
-            <p><span>URL:</span> <a href="<?= $video['url'] ?>" target="_blank">Watch on YouTube</a></p>
-        </div>
+            <div class="video-details">
+                <p><span>Description:</span> <?= $video['description'] ?></p>
+                <p><span>Views:</span> <?= $video['views'] ?><i class="fa-solid fa-eye" style="color: #ffffff; margin-left:5px;"></i></p>
+                <p><span>Likes:</span> <?= $video['likes'] ?><i class="fa-regular fa-thumbs-up" style="color: #ffffff; margin-left:5px;"></i></p>
+                <p><span>URL:</span> <a href="<?= $video['url'] ?>" target="_blank">Watch on YouTube</a></p>
+            </div>
 
-        <div class="thumbnail">
-            <img src="<?= $video['thumbnails'] ?>" alt="Thumbnail">
-        </div>
+            <div class="thumbnail">
+                <img src="<?= $video['thumbnails'] ?>" alt="Thumbnail">
+            </div>
         
-        <div class="sizes">
-        <button onclick="viewImage('1280x720')">1280x720</button>
-        <button onclick="viewImage('640x480')">640x480</button>
-        <button onclick="viewImage('480x360')">480x360</button>
-        <button onclick="viewImage('320x180')">320x180</button>
-        <button onclick="viewImage('120x90')">120x90</button>
-        </div>
-        
+            <div class="sizes">
+                <button onclick="viewImage('1280x720')">1280x720</button>
+                <button onclick="viewImage('640x480')">640x480</button>
+                <button onclick="viewImage('480x360')">480x360</button>
+                <button onclick="viewImage('320x180')">320x180</button>
+                <button onclick="viewImage('120x90')">120x90</button>
+            </div>      
         </div>
         <div class="channelDetail">
-        <div class="channel-details">
-            <p><span>Channel Title:</span> <?= $video['channelTitle'] ?></p>
-            <p><span>Channel Description:</span> <?= $video['channelDescription'] ?></p>
-            <p><span>Subscribers:</span> <?= $video['channelSubscribers'] ?></p>
-            <div class="thumbnail">
-            <img src="<?= $video['channelThumbnails'] ?>" alt="Channel Thumbnail">
-        </div>
-            <p><span>Channel URL:</span> <a href="<?= $video['channelUrl'] ?>" target="_blank">Go to Channel</a></p>
-        </div>
+            <div class="channel-details">
+                <p><span>Channel Title:</span> <?= $video['channelTitle'] ?></p>
+                <p><span>Channel Description:</span> <?= $video['channelDescription'] ?></p>
+                <p><span>Subscribers:</span> <?= $video['channelSubscribers'] ?></p>
+                <div class="thumbnail">
+                    <img src="<?= $video['channelThumbnails'] ?>" alt="Channel Thumbnail">
+                </div>
+                <p><span>Channel URL:</span> <a href="<?= $video['channelUrl'] ?>" target="_blank">Go to Channel</a></p>
+            </div>
         </div>
         <div class="back-button">
             <a href="index.php"><i class="fa-solid fa-arrow-left" style="margin-right:5px; color:#1e90ff;"></i>Back to Trending Videos</a>

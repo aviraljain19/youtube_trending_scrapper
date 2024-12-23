@@ -11,11 +11,10 @@ h1 {
 }
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  flex-wrap: wrap;
   margin: 0 auto;
   padding: 20px;
-  flex-direction: column;
 }
 iframe {
   border-radius: 20px;
@@ -99,6 +98,7 @@ a:hover {
   .container {
     justify-content: space-between;
     flex-direction: row;
+    flex-wrap: wrap;
   }
   .videoDetail {
     width: 55%;
